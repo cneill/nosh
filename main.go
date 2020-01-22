@@ -26,13 +26,14 @@ func setupFlags(opts *ClientOpts) {
 	flag.BoolVar(&opts.InfoOnly, "i", false, "(short) print info and quit")
 	flag.StringVar(&opts.OutFile, "outFile", "", "file to write contents to")
 	flag.StringVar(&opts.OutFile, "o", "", "(short) file to write contents to")
-	flag.StringVar(&opts.NoshDigest, "noshDigest", "", "nosh digest to compare against")
-	flag.StringVar(&opts.NoshDigest, "n", "", "(short) nosh digest to compare against")
+	flag.StringVar(&opts.NoshHash, "noshHash", "", "nosh hash to compare against")
+	flag.StringVar(&opts.NoshHash, "n", "", "(short) nosh hash to compare against")
 	flag.StringVar(&opts.SHA1, "sha1", "", "sha1 hash for the file")
 	flag.StringVar(&opts.SHA256, "sha256", "", "sha256 hash for the file")
 	flag.BoolVar(&opts.Verbose, "verbose", false, "toggle verbosity")
 	flag.BoolVar(&opts.Verbose, "v", false, "(short) toggle verbosity")
 	// TODO: SSL-only
+	// TODO: no redirects
 }
 
 func parseFlags(opts *ClientOpts) {

@@ -21,7 +21,7 @@ type ClientOpts struct {
 	OutFile         string
 	SHA1            string
 	SHA256          string
-	NoshDigest      string
+	NoshHash        string
 	ChecksumFile    string
 	UserAgent       string
 	CABundle        string
@@ -189,8 +189,8 @@ func (c *Client) Validate() error {
 		errors = append(errors, fmt.Sprintf("\tSHA256 did not validate; expected: %q, received: %q", c.SHA256, c.File.Checksums.SHA256))
 	}
 
-	if c.NoshDigest != "" && !c.File.Checksums.EqualsDigest(c.NoshDigest) {
-		errors = append(errors, fmt.Sprintf("\tnosh Digest did not validate; expected: %q, received %q", c.NoshDigest, c.File.Checksums.Digest()))
+	if c.NoshHash != "" && !c.File.Checksums.EqualsDigest(c.NoshHash) {
+		errors = append(errors, fmt.Sprintf("\tnosh Digest did not validate; expected: %q, received %q", c.NoshHash, c.File.Checksums.Digest()))
 	}
 
 	if c.ChecksumFile != "" {
